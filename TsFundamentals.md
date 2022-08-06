@@ -1,6 +1,11 @@
 # TypeScript
 
-TypeScript => compiled => JavaScript
+**transpile:** Convert from language to another. <br>
+TypeScript => transpilation => JavaScript
+- TS => tsc => JS
+> Browsers Don't understands TS.
+
+
 
 ### It is a super-set of JavaScript, that means it is javascript but with additionlal features.
 
@@ -163,4 +168,85 @@ class Point{
 let point = new Point(1, 2);
 point.x = 15;
 let x = point.x;
+```
+
+## Decorators
+- Apply something when you run the class
+- Describe something.
+- You can apply it to a class, methods, variables ...
+
+### Example 1
+```js
+function age(){
+    console.log("Hello From the Decorator");
+}
+
+@age
+class Greeting{
+    name:string;
+    message:string;
+    constructor(name:string, message:string){
+        this.message = message;
+        this.name = anme;
+    }
+    syaHello(){
+        console.log("Hello!");
+    }
+}
+```
+
+### Example 2
+```js
+function classDecorator<T extends {new (...args:any[]):{}}>(constructor: T){
+    return class extends constructor {
+        newProperity = "new Properity"; 
+        hello = "override";
+    }
+}
+
+@classDecorator
+class Greeting{
+    properity = "Properity"; 
+    hello:string;
+    constructor(h:string){
+        this.hello = h;
+    }
+    syaHello(){
+        console.log("Hello!");
+    }
+}
+
+console.log(new Greeting('world'));
+
+// output:
+/*
+    {
+        properity: 'Properity',
+        hello: 'override',
+        newProperity: 'new Properity';
+    }
+*/
+```
+
+### Example 3
+
+```js
+function student(config: any){ // decorator factory
+    return function(target: any){ // the decorator it self
+        console.log(config, target);
+    }
+}
+
+@student({
+    course: 'Angular'
+})
+class Person{}
+
+console.log(new Person());
+
+
+// output
+/*
+    { course: 'Angular' } [Function: PersonS]
+*/
 ```

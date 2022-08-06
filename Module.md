@@ -5,6 +5,22 @@
 3. When ever we need to use these types, we need to import them first
 4. when ever you have ```export``` keyword, then it is a module
 
+### src/app
+### src/app/app.module.ts
+```js
+@NgModule({
+    declarations:[ // contains all the components
+        AppComponent
+    ],
+    imports:[ // contains all modules
+        BrowserModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent] // The root component
+})
+```
+
+
 ```js
 // Module declaration
 // This file is not accessible from outside, it defied on its scope

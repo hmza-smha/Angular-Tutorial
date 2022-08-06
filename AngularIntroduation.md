@@ -1,5 +1,17 @@
 # Angular Introduction
 
+important things in Angular
+
+1. RXJS
+2. webpack 
+    - Manage files, components
+3. Typescript
+4. Protractor
+    - Unit testing 
+    - End to end testing (*functional testing*)
+        - Karma 
+        - Jasmine
+
 ## component
 The component contain 
 1. Data
